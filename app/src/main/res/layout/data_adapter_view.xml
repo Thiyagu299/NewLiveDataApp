@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="dataValue"
+            type="com.example.android.livedataapp.UserData"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/background_end"
+        android:layout_height="100dp" >
+
+        <TextView
+            android:id="@+id/text_recycle"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/rel_image"
+            android:text="@{dataValue.first_name + ' '+dataValue.last_name}"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:id="@+id/rel_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:avatar="@{dataValue.avatar}"
+            />
+        <ProgressBar
+            android:id="@+id/progress_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:visibility="@{dataValue.progress ? View.GONE : View.VISIBLE}"
+            />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>
